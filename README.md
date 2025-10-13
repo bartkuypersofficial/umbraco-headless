@@ -1,2 +1,2 @@
 # umbraco-headless
-Umbraco 16.2.0 headless setup
+Umbraco CMS 16.2.0 project with Next.js frontend
