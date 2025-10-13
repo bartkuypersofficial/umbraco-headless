@@ -1,0 +1,229 @@
+# .NET / Umbraco specific
+bin/
+obj/
+out/
+*.user
+*.suo
+*.cache
+*.docstates
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignoreable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Umbraco specific
+umbraco/Data/TEMP/
+umbraco/Data/*.sdf
+umbraco/Data/*.mdf
+umbraco/Data/*.ldf
+umbraco/Data/Logs/
+umbraco/Data/preview/
+umbraco/Logs/
+umbraco/App_Data/TEMP/
+umbraco/App_Data/Logs/
+umbraco/App_Data/cache/
+umbraco/App_Data/ClientDependency/
+umbraco/App_Data/ExamineIndexes/
+umbraco/App_Data/Models/
+umbraco/App_Data/Umbraco.sdf
+umbraco/App_Data/umbraco.config
+App_Data/TEMP/
+App_Data/Logs/
+App_Data/cache/
+App_Data/ClientDependency/
+App_Data/ExamineIndexes/
+App_Data/Models/
+App_Data/Umbraco.sdf
+App_Data/umbraco.config
+
+# Next.js specific
+umbraco-web/.next/
+umbraco-web/out/
+umbraco-web/build/
+umbraco-web/.next
+umbraco-web/dist
+umbraco-web/node_modules/
+umbraco-web/npm-debug.log*
+umbraco-web/yarn-debug.log*
+umbraco-web/yarn-error.log*
+umbraco-web/.pnpm-debug.log*
+
+# Local env files for Next.js
+umbraco-web/.env*.local
+umbraco-web/.env.local
+umbraco-web/.env.development.local
+umbraco-web/.env.test.local
+umbraco-web/.env.production.local
+
+# Vercel
+umbraco-web/.vercel
+
+# typescript
+umbraco-web/*.tsbuildinfo
+umbraco-web/next-env.d.ts
+
+# General
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env*.local
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Separate Git repository for umbraco-web
+umbraco-web/
