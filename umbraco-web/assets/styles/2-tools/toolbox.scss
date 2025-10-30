@@ -8,9 +8,9 @@
 @use 'sass:meta';
 @use 'sass:math';
 @use 'sass:map';
-@use '@styles/1-settings/settings.colors' as *;
-@use '@styles/1-settings/settings.typography' as *;
-@use '@styles/1-settings/settings.variables' as *;
+@use '../1-settings/colors'        as *;
+@use '../1-settings/typography'    as *;
+@use '../1-settings/variables'     as *;
 
 $font-used: ();
 

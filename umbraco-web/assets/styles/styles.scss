@@ -14,24 +14,24 @@
 //  Global variables, site-wide settings,
 //  config switches etc.
 // ======================================================================================
-@use '1-settings/settings.colors'           as *;
-@use '1-settings/settings.typography'       as *;
-@use '1-settings/settings.variables'        as *;
+@use '1-settings/colors'              as *;
+@use '1-settings/typography'          as *;
+@use '1-settings/variables'           as *;
 
 
 //  2 Tools
 //  Site wide mixins and functions
 // ======================================================================================
-@use '2-tools/tools.toolbox'                as *;
-@use '2-tools/tools.media-queries'          as *;
-@use '2-tools/tools.normalize'              as *;
-@use '2-tools/tools.reset'                  as *;
+@use '2-tools/toolbox'                as *;
+@use '2-tools/media-queries'          as *;
+@use '2-tools/normalize'              as *;
+@use '2-tools/reset'                  as *;
 
 
 //  3 Elements
 //  Unclassed HTML elements (type selectors)
 // ======================================================================================
-@use '3-elements/elements.base'             as *;
+@use '3-elements/base'                as *;
 
 
 //  When fonts are used in SCSS

@@ -4,11 +4,11 @@
 
 
 // Here come the imports
-@use '@styles/1-settings/settings.colors' as *;
-@use '@styles/1-settings/settings.typography' as *;
-@use '@styles/1-settings/settings.variables' as *;
-@use '@styles/2-tools/tools.toolbox' as *;
-@use '@styles/2-tools/tools.media-queries' as *;
+@use '../1-settings/colors'        as *;
+@use '../1-settings/typography'    as *;
+@use '../1-settings/variables'     as *;
+@use '../2-tools/toolbox'          as *;
+@use '../2-tools/media-queries'    as *;
 
 
 @-ms-viewport {
