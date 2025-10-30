@@ -1,0 +1,92 @@
+// ======================================================================================
+//  Site wide variables for specific components on which other elements are dependent.
+// ======================================================================================
+
+
+// Here come the imports
+@use '@styles/1-settings/settings.colors' as *;
+
+
+// ==========================================
+//  Defined breakpoints
+// ==========================================
+$media: (
+  'xxs':                                0,
+  'xs':                                 23.125rem,  // 370px
+  'sm':                                 30rem,      // 480px
+  'md':                                 48rem,      // 768px
+  'lg':                                 64rem,      // 1024px
+  'xl':                                 90rem       // 1440px
+);
+
+
+// ==========================================
+//  Set some values here for reuse
+//  within components
+// ==========================================
+$grid-columns:                          12 !default;
+$grid-gutter-width:                     1.875rem !default;
+
+
+// ==========================================
+//  Grid containers
+//  Define the maximum width of `.container`
+//  for different screen sizes.
+// ==========================================
+$container-max-widths: (
+  sm:                                   33.75rem,   // 540px
+  md:                                   48rem,      // 768px
+  lg:                                   64rem,      // 1024px
+  xl:                                   90rem       // 1440px
+) !default;
+
+
+// ==========================================
+//  Set some default uses of color
+// ==========================================
+$page-shadow-color:                     $brand-neutral-600 !default;
+$page-background-color:                 $brand-neutral-100 !default;
+$page-text-color:                       $black !default;
+$link-text-color:                       $brand-primary !default;
+$link-text-color--hover:                $brand-primary-light !default;
+
+
+// ==========================================
+//  Default border properties
+// ==========================================
+$border-radius:                          0.313rem !default;
+$border-radius--small:                   0.188rem !default;
+$border-width:                           0.063rem !default;
+$border-style:                           solid !default;
+$border-color:                           $brand-neutral !default;
+
+
+// ==========================================
+//  Default animation properties
+// ==========================================
+$transition-speed:                      .4s !default;
+$transition-speed--fast:                .2s !default;
+$transition-speed--turbo:               .1s !default;
+$transition-ease:                       ease-in-out !default;
+
+$transition:                            .4s ease !default;
+$transition--fast:                      .2s ease !default;
+$transition--turbo:                     .1s ease !default;
+
+
+// ==========================================
+//  Default z-index values
+// ==========================================
+$z-showmqlabel:                         70;
+$z-modal:                               61;
+$z-cookie:                              50;
+$z-loader-before:                       41;
+$z-loader-after:                        40;
+$z-hint:                                30;
+$z-fixed-button:                        13;
+$z-fixed-header:                        12;
+$z-lead:                                11;
+$z-overlay:                             10;
+$z-minimal:                              1;
+$z-reset:                                0;
+$z-negative:                            -1;

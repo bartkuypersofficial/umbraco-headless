@@ -1,0 +1,98 @@
+// ======================================================================================
+//  Media Queries
+// ======================================================================================
+
+
+// Here come the imports
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@use '@styles/1-settings/settings.variables' as *;
+
+
+// ==========================================
+//  Enclose a block of code with a media query as named in '$breakpoints'.
+//  Output media query with focus on min-width and max-width.
+//
+//  Media queries can be used with a mixin called 'mq'
+//  It can be used in a different number of ways.
+//
+//  USAGE:
+//
+//  @include mq(lg){
+//      ###
+//  }
+//
+//  Outputs:
+//
+//  @media only screen and (min-width: 1024px) {
+//      ###
+//  }
+//
+//  Also a range can be made like this:
+//
+//  @include mq(m l){
+//      ###
+//  }
+//
+//  Outputs:
+//
+//  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+//      ###
+//  }
+//
+// This can also be used in conjunction with a max 'width'-query
+//
+//  @include mq(max lg){
+//      ###
+//  }
+//
+//  Outputs:
+//
+//  @media only screen and (max-width: 1023px) {
+//      ###
+//  }
+// ==========================================
+@mixin mq($breakpoints...) {
+  $query: '';
+
+  @if list.length($breakpoints) == 1 {
+    $breakpoint: list.nth($breakpoints, 1);
+    $breakpoint-str: string.unquote("#{$breakpoint}");
+
+    @if map.has-key($media, $breakpoint-str) {
+      $query: "(min-width: #{map.get($media, $breakpoint-str)})";
+    } @else if string.slice($breakpoint-str, 1, 4) == "max " {
+      $key: string.slice($breakpoint-str, 5);
+
+      @if map.has-key($media, $key) {
+        $max-value: map.get($media, $key);
+        $query: "(max-width: #{($max-value - math.div(1, 16))})";
+      } @else {
+        @warn "Unknown max-width breakpoint: '#{$key}'. Check _settings.variables.scss.";
+      }
+    } @else {
+      @warn "Unknown breakpoint: '#{$breakpoint}'. Check _settings.variables.scss.";
+    }
+  } @else if list.length($breakpoints) == 2 {
+    $min: list.nth($breakpoints, 1);
+    $max: list.nth($breakpoints, 2);
+
+    @if map.has-key($media, $min) and map.has-key($media, $max) {
+      $min-value: map.get($media, $min);
+      $max-value: map.get($media, $max);
+      $query: "(min-width: #{$min-value}) and (max-width: #{($max-value - math.div(1, 16))})";
+    } @else {
+      @warn "Unknown breakpoint(s): #{$breakpoints}. Check _settings.variables.scss.";
+    }
+  } @else {
+    @warn "mq() only supports up to 2 breakpoints: min and optional max.";
+  }
+
+  @if $query != "" {
+    @media only screen and #{$query} {
+      @content;
+    }
+  }
+}
