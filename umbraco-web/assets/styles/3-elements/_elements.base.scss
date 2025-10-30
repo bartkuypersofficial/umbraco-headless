@@ -1,0 +1,213 @@
+// ======================================================================================
+//  BASE A thin layer on top of normalize.css
+// ======================================================================================
+
+
+// Here come the imports
+@use '@styles/1-settings/settings.colors' as *;
+@use '@styles/1-settings/settings.typography' as *;
+@use '@styles/1-settings/settings.variables' as *;
+@use '@styles/2-tools/tools.toolbox' as *;
+@use '@styles/2-tools/tools.media-queries' as *;
+
+
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  @include unitize(font-size, 16);
+  @include font('opensans');
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: scrollbar;
+  box-sizing: border-box;
+  font-family: $font-opensans;
+}
+
+body {
+  @include unitize(font-size, 16);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: $page-background-color;
+  color: $page-text-color;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &.is-dark {
+    background-color: $black;
+  }
+
+  &.no-scroll {
+    @include unitize(padding-right, 10);
+    overflow-y: hidden;
+  }
+
+  @include mq(md) {
+    @include unitize(padding-top, 135);
+  }
+}
+
+a {
+  transition: color $transition-speed $transition-ease;
+  color: $link-text-color;
+  text-decoration: underline;
+
+  &:not([class]):hover {
+    color: $link-text-color--hover;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    outline-offset: unset;
+  }
+}
+
+hr {
+  border: none;
+  @include border(top);
+}
+
+blockquote,
+dl,
+dd,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+fieldset,
+figure,
+hr {
+  margin: 0;
+}
+
+p,
+ul,
+ol {
+  @include unitize(margin-top, 12);
+}
+
+fieldset,
+ol,
+ul {
+  padding: 0;
+}
+
+iframe,
+fieldset {
+  border: none;
+}
+
+
+// ==========================================
+//  Set the default selection
+// ==========================================
+
+::selection {
+  background: $brand-neutral-600;
+  color: $brand-neutral-100;
+  text-shadow: none;
+}
+
+
+// ==========================================
+//  Custom scrollbar styles
+// ==========================================
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $brand-neutral-300 transparent;
+
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+*::-webkit-scrollbar {
+  @include unitize(width, 10);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $brand-neutral-300;
+}
+
+input,
+select,
+textarea {
+  font-size: $base-font-size;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: $base-font-size;
+}
+
+ul {
+  list-style: none;
+
+  li::before {
+    @include unitize(font-size, 20);
+    display: inline-block;
+    width: 1em;
+    margin-left: -.875em;
+    color: $brand-secondary;
+    line-height: 0;
+    content: '•';
+    vertical-align: middle;
+  }
+}
+
+ol {
+  list-style: none;
+  counter-reset: li;
+
+  li {
+    counter-increment: li;
+
+    &::before {
+      @include unitize(min-width, 30);
+      @include unitize(padding-right, 12);
+      display: inline-block;
+      margin-left: -1.125em;
+      content: counter(li);
+    }
+  }
+}
+
+blockquote {
+  @include unitize(margin, 24, 48, 24, 24);
+  @include unitize(padding, 0, 24);
+  @include unitize(font-size, 18);
+  @include font('opensans', 'semi-bold');
+  border-left: 2px solid $brand-primary-light;
+  color: $brand-primary;
+  font-style: italic;
+}
+
+.lead {
+  @include unitize(font-size, 16);
+  @include font('opensans', 'semi-bold');
+  font-style: italic;
+}
