@@ -8,7 +8,7 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:string';
-@use '@styles/1-settings/settings.variables' as *;
+@use '../1-settings/variables'     as *;
 
 
 // ==========================================
