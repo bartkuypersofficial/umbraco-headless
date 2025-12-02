@@ -6,21 +6,20 @@ import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const base = process.env.UMBRACO_API_BASE || '';
-  const res = await fetch(`${base}/umbraco/delivery/api/v2/content/`, { 
+  
+  // Fetch the root/home page specifically
+  const res = await fetch(`${base}/umbraco/delivery/api/v2/content/item/`, { 
     cache: 'no-store' 
   });
-  const data = await res.json();
-
-  // Get the home page or first item
-  const homeContent: UmbracoContent = data.items?.[0] || {
-    properties: {
-      metaName: "Home",
-      metaDescription: "Welcome to our website",
-      metaKeywords: ["Home", "Umbraco"],
-      metaRobots: ["Index", "Follow"],
-      title: "Home"
-    }
-  };
+  
+  if (!res.ok) {
+    return {
+      title: "Home",
+      description: "Welcome to our website",
+    };
+  }
+  
+  const homeContent: UmbracoContent = await res.json();
 
   return generateSEOMetadata(homeContent.properties);
 }
@@ -36,21 +35,22 @@ export default async function HomePage() {
   const navItems: navItem[] = navData.items || [];
   const nav = navComponent(navContent(navItems));
 
-  // Fetch home page content
-  const contentRes = await fetch(`${base}/umbraco/delivery/api/v2/content/`, { 
+  // Fetch home page content specifically (root page)
+  const contentRes = await fetch(`${base}/umbraco/delivery/api/v2/content/item/`, { 
     cache: 'no-store' 
   });
-  const contentData = await contentRes.json();
-  const homeContent: UmbracoContent = contentData.items?.[0];
 
-  if (!homeContent) {
+  if (!contentRes.ok) {
     return (
       <main>
         {nav}
-        <h1>No content found</h1>
+        <h1>Home page not found</h1>
+        <p>Unable to load the home page content.</p>
       </main>
     );
   }
+
+  const homeContent: UmbracoContent = await contentRes.json();
 
   // Render the appropriate template based on contentType
   return renderTemplate(homeContent.contentType, {
