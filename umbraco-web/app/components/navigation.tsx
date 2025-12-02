@@ -1,20 +1,7 @@
 import React from "react";
+import { navItem } from "../types/content";
 
-export interface navItem {
-  id: string;
-  name: string;
-  route: {
-    path: string;
-    startItem?: {
-      id: string;
-      path: string;
-    };
-  };
-  properties?: {
-    hideInNavigation?: string[] | null;
-    [key: string]: any;
-  };
-}
+// Remove the duplicate interface since it's now imported
 
 
 /**
